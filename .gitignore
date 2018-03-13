@@ -19,3 +19,8 @@ temp/
 
 ### Backup Files ###
 *.bak
+
+### Log Files ###
+log/
+logs/
+*.log
