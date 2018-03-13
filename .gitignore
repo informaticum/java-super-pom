@@ -24,3 +24,8 @@ temp/
 log/
 logs/
 *.log
+
+### Eclipse ###
+.settings/
+.classpath
+.project
