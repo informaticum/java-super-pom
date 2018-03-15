@@ -51,6 +51,12 @@
           <version>2.4</version>
         </plugin>
         <plugin>
+          <!-- https://maven.apache.org/plugins/maven-plugin-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-plugin-plugin</artifactId>
+          <version>3.2</version>
+        </plugin>
+        <plugin>
           <!-- https://maven.apache.org/plugins/maven-resources-plugin/ -->
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
