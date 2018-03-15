@@ -10,4 +10,18 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <build>
+    <!-- manage build plug-ins (and common configuration) (sorted alphabetically for traceability/reproducibility) -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <!-- https://maven.apache.org/plugins/maven-clean-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
 </project>
