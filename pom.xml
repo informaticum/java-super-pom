@@ -33,6 +33,12 @@
           <version>2.7</version>
         </plugin>
         <plugin>
+          <!-- https://maven.apache.org/plugins/maven-ear-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-ear-plugin</artifactId>
+          <version>2.8</version>
+        </plugin>
+        <plugin>
           <!-- https://maven.apache.org/plugins/maven-ejb-plugin/ -->
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-ejb-plugin</artifactId>
