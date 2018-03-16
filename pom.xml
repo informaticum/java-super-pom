@@ -63,6 +63,12 @@
           <version>3.2</version>
         </plugin>
         <plugin>
+          <!-- https://maven.apache.org/plugins/maven-rar-plugin/ -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-rar-plugin</artifactId>
+          <version>2.2</version>
+        </plugin>
+        <plugin>
           <!-- https://maven.apache.org/plugins/maven-resources-plugin/ -->
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
