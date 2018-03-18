@@ -11,7 +11,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <!-- General Build Stuff Versions -->
+    <!--==≡≡ General Build Stuff Configurations ≡≡==-->
     <!-- http://maven.apache.org/general.html#https://maven.apache.org/general.html#Compiling-Java-7 -->
     <version.java>1.8</version.java>
     <maven.compiler.source>${version.java}</maven.compiler.source>
