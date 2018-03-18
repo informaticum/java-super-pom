@@ -10,6 +10,18 @@
   <version>0.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <properties>
+    <!--==≡≡ General Build Stuff Configurations ≡≡==-->
+    <!-- http://maven.apache.org/general.html#https://maven.apache.org/general.html#Compiling-Java-7 -->
+    <version.java>1.8</version.java>
+    <maven.compiler.source>${version.java}</maven.compiler.source>
+    <maven.compiler.target>${version.java}</maven.compiler.target>
+    <!-- http://maven.apache.org/general.html#encoding-warning -->
+    <project.encoding>UTF-8</project.encoding>
+    <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
+  </properties>
+
   <build>
     <!-- manage build plug-ins (and common configuration) (sorted alphabetically for traceability/reproducibility) -->
     <pluginManagement>
@@ -43,6 +55,12 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-ejb-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <!-- http://www.mojohaus.org/exec-maven-plugin/ -->
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.6.0</version>
         </plugin>
         <plugin>
           <!-- https://maven.apache.org/plugins/maven-install-plugin/ -->
