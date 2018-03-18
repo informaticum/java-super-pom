@@ -1,5 +1,7 @@
 package de.informaticum.jar;
 
+import static java.lang.String.join;
+
 public class HelloWorld {
 
     public static void main(final String[] args) {
@@ -8,7 +10,7 @@ public class HelloWorld {
     }
 
     public String getMessage() {
-        return "Hello world!";
+        return join(" ", "Hello", "world!");
     }
 
 }
