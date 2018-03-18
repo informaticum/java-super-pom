@@ -10,6 +10,14 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <properties>
+    <!-- General Build Stuff Versions -->
+    <!-- http://maven.apache.org/general.html#encoding-warning -->
+    <project.encoding>UTF-8</project.encoding>
+    <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
+  </properties>
+
   <build>
     <!-- manage build plug-ins (and common configuration) (sorted alphabetically for traceability/reproducibility) -->
     <pluginManagement>
