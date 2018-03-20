@@ -1,18 +1,18 @@
-package de.informaticum.ejb;
+package de.informaticum.ejb.impl;
 
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.joining;
 import java.util.ArrayList;
 import java.util.List;
+import de.informaticum.ejb.api.HelloWorld;
 
-public class HelloWorld {
+public class HelloWorldImpl
+implements HelloWorld {
 
-    public static void main(final String[] args) {
-        final HelloWorld hw = new HelloWorld();
-        System.out.println(hw.getMessage());
-    }
-
+    @Override
     public String getMessage() {
+        // assert statement requires Java 1.4
+        assert true;
         // static imports requires Java 1.5
         final List<String> list = asList("Hello", "world!");
         // diamond operator requires Java 1.7

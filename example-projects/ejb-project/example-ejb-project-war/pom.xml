@@ -1,0 +1,31 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.informaticum</groupId>
+    <artifactId>example-ejb-project</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../</relativePath>
+  </parent>
+
+  <artifactId>example-ejb-project-war</artifactId>
+  <packaging>war</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>de.informaticum</groupId>
+      <artifactId>example-ejb-project-api</artifactId>
+      <!-- This is unnecessary but [IntelliJ ignores skinnyWars=true](https://youtrack.jetbrains.com/issue/IDEA-97324). -->
+      <!-- scope>provided</scope -->
+    </dependency>
+  </dependencies>
+
+</project>
