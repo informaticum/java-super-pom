@@ -5,7 +5,7 @@
   <enterprise-beans>
     <session>
       <ejb-name>HelloWorldBean</ejb-name>
-      <business-local>de.informaticum.ejb.api.HelloWorld</business-local>
+      <business-local>de.informaticum.ejb.api.HelloWorldAPI</business-local>
       <ejb-class>de.informaticum.ejb.impl.HelloWorldImpl</ejb-class>
       <session-type>Stateless</session-type>
     </session>
