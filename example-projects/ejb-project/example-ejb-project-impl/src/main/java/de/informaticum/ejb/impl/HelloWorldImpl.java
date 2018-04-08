@@ -6,8 +6,10 @@ import static java.util.stream.Collectors.joining;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.ejb.Stateless;
 import de.informaticum.ejb.api.HelloWorldAPI;
 
+@Stateless
 public class HelloWorldImpl
 implements HelloWorldAPI {
 
