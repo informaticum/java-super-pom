@@ -1,9 +1,11 @@
 package de.informaticum.ejb.impl;
 
+import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.joining;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import de.informaticum.ejb.api.HelloWorldAPI;
 
 public class HelloWorldImpl
@@ -19,6 +21,12 @@ implements HelloWorldAPI {
         final List<String> arrayList = new ArrayList<>(list);
         // lambda expression -- requires Java 1.8
         return arrayList.stream().map(s -> s).collect(joining(" "));
+    }
+
+    @Override
+    public String getGreeting(final String name) {
+        // String#format(String, Object...) -- requires Java 1.5
+        return format("Hello %s!", Objects.toString(name));
     }
 
 }
