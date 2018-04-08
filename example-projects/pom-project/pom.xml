@@ -13,6 +13,7 @@
   </parent>
 
   <artifactId>example-pom-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
 </project>
