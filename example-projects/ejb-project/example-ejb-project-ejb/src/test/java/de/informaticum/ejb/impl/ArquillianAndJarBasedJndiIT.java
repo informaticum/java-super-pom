@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class ArquillianAndJarBasedJndiIT {
 
-    private static final String EJB_FILE = "example-ejb-project-impl-0.0.1-SNAPSHOT.jar";
+    private static final String EJB_FILE = "example-ejb-project-ejb-0.0.1-SNAPSHOT.jar";
 
     @Deployment
     public static Archive<?> createDeployment() {
