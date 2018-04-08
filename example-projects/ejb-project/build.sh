@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# mvn clean install
-mvn --projects example-ejb-project-impl --also-make verify
+# mvn --projects example-ejb-project-impl --also-make verify
+mvn clean install
