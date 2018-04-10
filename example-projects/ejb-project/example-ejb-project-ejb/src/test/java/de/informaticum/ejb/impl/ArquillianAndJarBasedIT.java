@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import javax.inject.Inject;
 import de.informaticum.ejb.api.HelloWorldAPI;
+import de.informaticum.ejb.api.HelloYouAPI;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -47,11 +48,14 @@ public class ArquillianAndJarBasedIT {
         assertEquals(message1, message2);
     }
 
+    @Inject
+    HelloYouAPI hy;
+
     @Test
     public void testGreeting()
     throws Exception {
-        assertNotNull(this.hw);
-        assertEquals("Hello Kushim!", this.hw.getGreeting("Kushim"));
+        assertNotNull(this.hy);
+        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
     }
 
 }

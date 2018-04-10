@@ -8,6 +8,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import de.informaticum.ejb.api.HelloWorldAPI;
+import de.informaticum.ejb.api.HelloYouAPI;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -32,15 +33,15 @@ public class ArquillianAndJarBasedJndiIT {
                          .addClass(ArquillianAndJarBasedJndiIT.class);
     }
 
-    private HelloWorldAPI hw;
-
     private static final String BEAN_PREFIX = "java:global/test/";
 
+    private HelloWorldAPI hw;
+
     @Before
-    public void newInstance()
+    public void lookupHelloWorldBean()
     throws NamingException {
         final Context context = new InitialContext();
-        final Object bean = context.lookup(BEAN_PREFIX + HelloWorldImpl.class.getSimpleName());
+        final Object bean = context.lookup(BEAN_PREFIX + HelloWorldEnterpriseJavaBean.class.getSimpleName());
         assertNotNull(bean);
         assertTrue(bean instanceof HelloWorldAPI);
         this.hw = (HelloWorldAPI) bean;
@@ -62,11 +63,23 @@ public class ArquillianAndJarBasedJndiIT {
         assertEquals(message1, message2);
     }
 
+    private HelloYouAPI hy;
+
+    @Before
+    public void lookupHelloYouBean()
+    throws NamingException {
+        final Context context = new InitialContext();
+        final Object bean = context.lookup(BEAN_PREFIX + HelloYouEnterpriseJavaBean.class.getSimpleName());
+        assertNotNull(bean);
+        assertTrue(bean instanceof HelloYouAPI);
+        this.hy = (HelloYouAPI) bean;
+    }
+
     @Test
     public void testGreeting()
     throws Exception {
-        assertNotNull(this.hw);
-        assertEquals("Hello Kushim!", this.hw.getGreeting("Kushim"));
+        assertNotNull(this.hy);
+        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
     }
 
 }

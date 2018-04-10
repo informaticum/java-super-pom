@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import javax.inject.Inject;
 import de.informaticum.ejb.api.HelloWorldAPI;
+import de.informaticum.ejb.api.HelloYouAPI;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -19,7 +20,8 @@ public class ArquillianBasedIT {
     @Deployment
     public static Archive<?> createDeployment() {
         return ShrinkWrap.create(JavaArchive.class) //
-                         .addClass(HelloWorldImpl.class) //
+                         .addClass(HelloWorldEnterpriseJavaBean.class) //
+                         .addClass(HelloYouEnterpriseJavaBean.class) //
                          .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -42,11 +44,14 @@ public class ArquillianBasedIT {
         assertEquals(message1, message2);
     }
 
+    @Inject
+    HelloYouAPI hy;
+
     @Test
     public void testGreeting()
     throws Exception {
-        assertNotNull(this.hw);
-        assertEquals("Hello Kushim!", this.hw.getGreeting("Kushim"));
+        assertNotNull(this.hy);
+        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
     }
 
 }
