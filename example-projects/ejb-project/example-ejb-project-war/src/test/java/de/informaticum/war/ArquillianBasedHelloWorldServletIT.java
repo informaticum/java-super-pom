@@ -29,7 +29,7 @@ public class ArquillianBasedHelloWorldServletIT {
 
     @Test
     @RunAsClient
-    public void testFoobarResponse(@ArquillianResource final URL base)
+    public void testHelloWorldResponse(@ArquillianResource final URL base)
     throws MalformedURLException {
         final Client client = newClient();
         final String uri = new URL(base, "helloworld").toExternalForm();

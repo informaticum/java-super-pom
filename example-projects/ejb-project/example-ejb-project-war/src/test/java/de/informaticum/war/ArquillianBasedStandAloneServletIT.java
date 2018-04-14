@@ -27,7 +27,7 @@ public class ArquillianBasedStandAloneServletIT {
 
     @Test
     @RunAsClient
-    public void testFoobarResponse(@ArquillianResource final URL base)
+    public void testHelloResponse(@ArquillianResource final URL base)
     throws MalformedURLException {
         final Client client = newClient();
         final String uri = new URL(base, "hellome").toExternalForm();
