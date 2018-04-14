@@ -11,6 +11,7 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -26,31 +27,38 @@ public class ArquillianBasedIT {
     }
 
     @Inject
-    HelloWorldAPI hw;
+    private HelloWorldAPI hw;
+
+    @Before
+    public void verifyHelloWorldBeanInjection() {
+        assertNotNull(this.hw);
+    }
 
     @Test
     public void testHelloWorld()
     throws Exception {
-        assertNotNull(this.hw);
         assertEquals("Hello world!", this.hw.getMessage());
     }
 
     @Test
     public void testReproducibility()
     throws Exception {
-        assertNotNull(this.hw);
         final String message1 = this.hw.getMessage();
         final String message2 = this.hw.getMessage();
         assertEquals(message1, message2);
     }
 
     @Inject
-    HelloYouAPI hy;
+    private HelloYouAPI hy;
+
+    @Before
+    public void verifyHelloYouBeanInjection() {
+        assertNotNull(this.hy);
+    }
 
     @Test
     public void testGreeting()
     throws Exception {
-        assertNotNull(this.hy);
         assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
     }
 
