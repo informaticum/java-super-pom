@@ -19,6 +19,7 @@
   <modules>
     <module>example-ejb-project-api</module>
     <module>example-ejb-project-ejb</module>
+    <module>example-ejb-project-war</module>
   </modules>
 
   <dependencyManagement>
@@ -32,6 +33,12 @@
         <groupId>de.informaticum</groupId>
         <artifactId>example-ejb-project-ejb</artifactId>
         <type>ejb</type>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.informaticum</groupId>
+        <artifactId>example-ejb-project-war</artifactId>
+        <type>war</type>
         <version>${project.version}</version>
       </dependency>
 
