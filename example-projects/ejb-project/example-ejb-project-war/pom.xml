@@ -19,10 +19,21 @@
       <artifactId>javaee-api</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>de.informaticum</groupId>
+      <artifactId>example-ejb-project-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.informaticum</groupId>
+      <artifactId>example-ejb-project-ejb</artifactId>
+      <type>ejb</type>
       <scope>test</scope>
     </dependency>
     <dependency>
