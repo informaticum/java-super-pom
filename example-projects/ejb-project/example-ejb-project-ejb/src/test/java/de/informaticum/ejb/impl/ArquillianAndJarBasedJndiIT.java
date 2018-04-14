@@ -25,11 +25,11 @@ public class ArquillianAndJarBasedJndiIT {
 
     @Deployment
     public static Archive<?> createDeployment() {
-        final File archiveFile = new File("./target/" + EJB_FILE);
-        assert archiveFile.exists();
-        assert archiveFile.isFile();
-        assert archiveFile.canRead();
-        return ShrinkWrap.createFromZipFile(JavaArchive.class, archiveFile) //
+        final File ejbFile = new File("./target/" + EJB_FILE);
+        assert ejbFile.exists();
+        assert ejbFile.isFile();
+        assert ejbFile.canRead();
+        return ShrinkWrap.createFromZipFile(JavaArchive.class, ejbFile) //
                          .addClass(ArquillianAndJarBasedJndiIT.class);
     }
 
