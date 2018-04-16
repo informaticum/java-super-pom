@@ -11,6 +11,7 @@ import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import de.informaticum.ejb.api.HelloWorldAPI;
+import de.informaticum.ejb.api.HelloYouAPI;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -33,15 +34,15 @@ public class EJBContainerBasedJndiIT {
         ejbContainer.close();
     }
 
-    private HelloWorldAPI hw;
-
     private static final String BEAN_PREFIX = "java:global/classes/";
 
+    private HelloWorldAPI hw;
+
     @Before
-    public void newInstance()
+    public void lookupHelloWorldBean()
     throws NamingException {
         final Context context = ejbContainer.getContext();
-        final Object bean = context.lookup(BEAN_PREFIX + HelloWorldImpl.class.getSimpleName());
+        final Object bean = context.lookup(BEAN_PREFIX + HelloWorldEnterpriseJavaBean.class.getSimpleName());
         assertNotNull(bean);
         assertTrue(bean instanceof HelloWorldAPI);
         this.hw = (HelloWorldAPI) bean;
@@ -63,11 +64,23 @@ public class EJBContainerBasedJndiIT {
         assertEquals(message1, message2);
     }
 
+    private HelloYouAPI hy;
+
+    @Before
+    public void lookupHelloYouBean()
+    throws NamingException {
+        final Context context = ejbContainer.getContext();
+        final Object bean = context.lookup(BEAN_PREFIX + HelloYouEnterpriseJavaBean.class.getSimpleName());
+        assertNotNull(bean);
+        assertTrue(bean instanceof HelloYouAPI);
+        this.hy = (HelloYouAPI) bean;
+    }
+
     @Test
     public void testGreeting()
     throws Exception {
-        assertNotNull(this.hw);
-        assertEquals("Hello Kushim!", this.hw.getGreeting("Kushim"));
+        assertNotNull(this.hy);
+        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
     }
 
 }
