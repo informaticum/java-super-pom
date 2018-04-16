@@ -15,6 +15,8 @@ import de.informaticum.ejb.api.HelloYouAPI;
 public class HelloYouServlet
 extends HttpServlet {
 
+    private static final long serialVersionUID = -8227655462405657617L;
+
     @Inject
     private HelloYouAPI helloYouAPI;
 
