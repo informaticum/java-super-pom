@@ -5,8 +5,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import de.informaticum.ejb.api.HelloEchoAPI;
 import de.informaticum.ejb.api.HelloWorldAPI;
-import de.informaticum.ejb.api.HelloYouAPI;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -25,7 +25,7 @@ public class ArquillianBasedJndiIT {
     public static Archive<?> createDeployment() {
         return ShrinkWrap.create(JavaArchive.class) //
                          .addClass(HelloWorldEnterpriseJavaBean.class) //
-                         .addClass(HelloYouEnterpriseJavaBean.class) //
+                         .addClass(HelloEchoEnterpriseJavaBean.class) //
                          .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -60,22 +60,22 @@ public class ArquillianBasedJndiIT {
         assertEquals(message1, message2);
     }
 
-    private HelloYouAPI hy;
+    private HelloEchoAPI hy;
 
     @Before
     public void lookupHelloYouBean()
     throws NamingException {
-        final Object bean = this.context.lookup(BEAN_PREFIX + HelloYouEnterpriseJavaBean.class.getSimpleName());
+        final Object bean = this.context.lookup(BEAN_PREFIX + HelloEchoEnterpriseJavaBean.class.getSimpleName());
         assertNotNull(bean);
-        assertTrue(bean instanceof HelloYouAPI);
-        this.hy = (HelloYouAPI) bean;
+        assertTrue(bean instanceof HelloEchoAPI);
+        this.hy = (HelloEchoAPI) bean;
         assertNotNull(this.hy);
     }
 
     @Test
-    public void testGreeting(final @ArquillianResource InitialContext context)
+    public void testEcho(final @ArquillianResource InitialContext context)
     throws Exception {
-        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
+        assertEquals("Echo: Hello myself!", this.hy.getEchoMessage("Hello myself!"));
     }
 
 }

@@ -10,8 +10,8 @@ import java.util.Map;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 import javax.naming.NamingException;
+import de.informaticum.ejb.api.HelloEchoAPI;
 import de.informaticum.ejb.api.HelloWorldAPI;
-import de.informaticum.ejb.api.HelloYouAPI;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -64,23 +64,23 @@ public class EJBContainerBasedJndiIT {
         assertEquals(message1, message2);
     }
 
-    private HelloYouAPI hy;
+    private HelloEchoAPI hy;
 
     @Before
     public void lookupHelloYouBean()
     throws NamingException {
         final Context context = ejbContainer.getContext();
-        final Object bean = context.lookup(BEAN_PREFIX + HelloYouEnterpriseJavaBean.class.getSimpleName());
+        final Object bean = context.lookup(BEAN_PREFIX + HelloEchoEnterpriseJavaBean.class.getSimpleName());
         assertNotNull(bean);
-        assertTrue(bean instanceof HelloYouAPI);
-        this.hy = (HelloYouAPI) bean;
+        assertTrue(bean instanceof HelloEchoAPI);
+        this.hy = (HelloEchoAPI) bean;
     }
 
     @Test
-    public void testGreeting()
+    public void testEcho()
     throws Exception {
         assertNotNull(this.hy);
-        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
+        assertEquals("Echo: Hello myself!", this.hy.getEchoMessage("Hello myself!"));
     }
 
 }

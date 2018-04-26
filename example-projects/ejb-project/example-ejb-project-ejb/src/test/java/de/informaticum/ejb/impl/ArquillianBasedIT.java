@@ -3,8 +3,8 @@ package de.informaticum.ejb.impl;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import javax.inject.Inject;
+import de.informaticum.ejb.api.HelloEchoAPI;
 import de.informaticum.ejb.api.HelloWorldAPI;
-import de.informaticum.ejb.api.HelloYouAPI;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -22,7 +22,7 @@ public class ArquillianBasedIT {
     public static Archive<?> createDeployment() {
         return ShrinkWrap.create(JavaArchive.class) //
                          .addClass(HelloWorldEnterpriseJavaBean.class) //
-                         .addClass(HelloYouEnterpriseJavaBean.class) //
+                         .addClass(HelloEchoEnterpriseJavaBean.class) //
                          .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -49,7 +49,7 @@ public class ArquillianBasedIT {
     }
 
     @Inject
-    private HelloYouAPI hy;
+    private HelloEchoAPI hy;
 
     @Before
     public void verifyHelloYouBeanInjection() {
@@ -57,9 +57,9 @@ public class ArquillianBasedIT {
     }
 
     @Test
-    public void testGreeting()
+    public void testEcho()
     throws Exception {
-        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
+        assertEquals("Echo: Hello myself!", this.hy.getEchoMessage("Hello myself!"));
     }
 
 }

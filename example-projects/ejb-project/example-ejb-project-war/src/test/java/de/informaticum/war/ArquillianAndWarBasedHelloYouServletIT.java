@@ -51,7 +51,7 @@ public class ArquillianAndWarBasedHelloYouServletIT {
         final Response response = target.request().post(text("Kushim"));
 
         final String actual = response.readEntity(String.class).trim();
-        assertEquals("Hello Kushim!", actual);
+        assertEquals("Echo: Kushim", actual);
     }
 
 }

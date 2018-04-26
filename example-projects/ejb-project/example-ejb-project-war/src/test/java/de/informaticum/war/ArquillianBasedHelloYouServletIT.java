@@ -8,7 +8,7 @@ import java.net.URL;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
-import de.informaticum.ejb.impl.HelloYouEnterpriseJavaBean;
+import de.informaticum.ejb.impl.HelloEchoEnterpriseJavaBean;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
@@ -25,7 +25,7 @@ public class ArquillianBasedHelloYouServletIT {
     public static WebArchive create() {
         return ShrinkWrap.create(WebArchive.class) //
                          .addClass(HelloYouServlet.class) //
-                         .addClass(HelloYouEnterpriseJavaBean.class);
+                         .addClass(HelloEchoEnterpriseJavaBean.class);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class ArquillianBasedHelloYouServletIT {
         final Response response = target.request().post(text("Kushim"));
 
         final String actual = response.readEntity(String.class).trim();
-        assertEquals("Hello Kushim!", actual);
+        assertEquals("Echo: Kushim", actual);
     }
 
 }

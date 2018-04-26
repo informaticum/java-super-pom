@@ -2,8 +2,8 @@ package de.informaticum.ejb.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import de.informaticum.ejb.api.HelloEchoAPI;
 import de.informaticum.ejb.api.HelloWorldAPI;
-import de.informaticum.ejb.api.HelloYouAPI;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,18 +32,18 @@ public class HelloWorldImplTest {
         assertEquals(message1, message2);
     }
 
-    private HelloYouAPI hy;
+    private HelloEchoAPI hy;
 
     @Before
     public void newHelloYouBean() {
-        this.hy = new HelloYouEnterpriseJavaBean();
+        this.hy = new HelloEchoEnterpriseJavaBean();
     }
 
     @Test
-    public void testGreeting()
+    public void testEcho()
     throws Exception {
         assertNotNull(this.hy);
-        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
+        assertEquals("Echo: Hello myself!", this.hy.getEchoMessage("Hello myself!"));
     }
 
 }

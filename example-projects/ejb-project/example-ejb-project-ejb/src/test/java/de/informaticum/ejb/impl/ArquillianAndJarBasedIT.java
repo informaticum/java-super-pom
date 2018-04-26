@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import javax.inject.Inject;
+import de.informaticum.ejb.api.HelloEchoAPI;
 import de.informaticum.ejb.api.HelloWorldAPI;
-import de.informaticum.ejb.api.HelloYouAPI;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -26,8 +26,10 @@ public class ArquillianAndJarBasedIT {
         assert ejbFile.exists();
         assert ejbFile.isFile();
         assert ejbFile.canRead();
-        return ShrinkWrap.createFromZipFile(JavaArchive.class, ejbFile) //
-                         .addClass(ArquillianAndJarBasedIT.class);
+        final JavaArchive ejbArchive = ShrinkWrap.createFromZipFile(JavaArchive.class, ejbFile) //
+                                                 .addClass(ArquillianAndJarBasedIT.class);
+        System.out.println("XXX\n" + ejbArchive.toString(true));
+        return ejbArchive;
     }
 
     @Inject
@@ -53,7 +55,7 @@ public class ArquillianAndJarBasedIT {
     }
 
     @Inject
-    private HelloYouAPI hy;
+    private HelloEchoAPI hy;
 
     @Before
     public void verifyHelloYouBeanInjection() {
@@ -61,9 +63,9 @@ public class ArquillianAndJarBasedIT {
     }
 
     @Test
-    public void testGreeting()
+    public void testEcho()
     throws Exception {
-        assertEquals("Hello Kushim!", this.hy.getGreeting("Kushim"));
+        assertEquals("Echo: Hello myself!", this.hy.getEchoMessage("Hello myself!"));
     }
 
 }

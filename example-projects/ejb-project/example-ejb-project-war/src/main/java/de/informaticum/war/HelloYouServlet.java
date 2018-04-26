@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import de.informaticum.ejb.api.HelloYouAPI;
+import de.informaticum.ejb.api.HelloEchoAPI;
 
 @WebServlet(urlPatterns = "/helloyou")
 public class HelloYouServlet
@@ -18,13 +18,13 @@ extends HttpServlet {
     private static final long serialVersionUID = -8227655462405657617L;
 
     @Inject
-    private HelloYouAPI helloYouAPI;
+    private HelloEchoAPI helloEchoAPI;
 
     @Override
     protected void doPost(final HttpServletRequest req, final HttpServletResponse resp)
     throws ServletException, IOException {
         final String name = new BufferedReader(new InputStreamReader(req.getInputStream())).readLine();
-        resp.getWriter().println(this.helloYouAPI.getGreeting(name));
+        resp.getWriter().println(this.helloEchoAPI.getEchoMessage(name));
     }
 
 }
