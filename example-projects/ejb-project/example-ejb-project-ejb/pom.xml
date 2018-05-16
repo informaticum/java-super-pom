@@ -43,6 +43,7 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <!-- https://docs.jboss.org/author/display/ARQ/GlassFish+3.1+-+Embedded -->
       <groupId>org.jboss.arquillian.container</groupId>
       <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
       <scope>test</scope>
